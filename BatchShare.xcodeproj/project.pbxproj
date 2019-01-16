@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1BB36AE321EEABF10089E2D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BB36AE221EEABF10089E2D1 /* GoogleService-Info.plist */; };
-		1BB36AE621EEACF20089E2D1 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirebaseController.swift */; };
+		1BB36AE621EEACF20089E2D1 /* FirestoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AE521EEACF20089E2D1 /* FirestoreClient.swift */; };
+		1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */; };
 		B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404A99521EEA23200491CE2 /* AppDelegate.swift */; };
 		B404A99B21EEA23200491CE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B404A99921EEA23200491CE2 /* Main.storyboard */; };
 		B404A9A021EEA23400491CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B404A99F21EEA23400491CE2 /* Assets.xcassets */; };
@@ -18,8 +19,9 @@
 
 /* Begin PBXFileReference section */
 		0A5A10CF1FC32FE99CC7F520 /* Pods_BatchShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BatchShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BB36AE221EEABF10089E2D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1BB36AE521EEACF20089E2D1 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		1BB36AE221EEABF10089E2D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1BB36AE521EEACF20089E2D1 /* FirestoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreClient.swift; sourceTree = "<group>"; };
+		1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreFetchable.swift; sourceTree = "<group>"; };
 		7056FB326F4087AA873129ED /* Pods-BatchShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatchShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BatchShare/Pods-BatchShare.debug.xcconfig"; sourceTree = "<group>"; };
 		930C7014EE6DCEDD798F14C8 /* Pods-BatchShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatchShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatchShare/Pods-BatchShare.release.xcconfig"; sourceTree = "<group>"; };
 		B404A99221EEA23200491CE2 /* BatchShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BatchShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,7 @@
 			children = (
 				B404A99521EEA23200491CE2 /* AppDelegate.swift */,
 				B404A99F21EEA23400491CE2 /* Assets.xcassets */,
+				1BB36AE221EEABF10089E2D1 /* GoogleService-Info.plist */,
 				B404A9A421EEA23400491CE2 /* Info.plist */,
 			);
 			name = Resources;
@@ -80,7 +83,7 @@
 		1BB36AE421EEACE10089E2D1 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				1BB36AE521EEACF20089E2D1 /* FirebaseController.swift */,
+				1BB36AE521EEACF20089E2D1 /* FirestoreClient.swift */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -88,6 +91,7 @@
 		1BB36AE721EEB8F60089E2D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1BB36AF321EEDEA10089E2D1 /* FirestoreFetchable.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -103,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				B404A99421EEA23200491CE2 /* BatchShare */,
-				1BB36AE221EEABF10089E2D1 /* GoogleService-Info.plist */,
 				B404A99321EEA23200491CE2 /* Products */,
 				0413F1FE90DAC591C1FDC409 /* Pods */,
 				DA640007B57FC135E7A6E7C6 /* Frameworks */,
@@ -297,8 +300,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BB36AE621EEACF20089E2D1 /* FirebaseController.swift in Sources */,
+				1BB36AE621EEACF20089E2D1 /* FirestoreClient.swift in Sources */,
 				B404A99621EEA23200491CE2 /* AppDelegate.swift in Sources */,
+				1BB36AF421EEDEA10089E2D1 /* FirestoreFetchable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
