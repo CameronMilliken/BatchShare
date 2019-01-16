@@ -7,8 +7,7 @@ target 'BatchShare' do
 
   # Pods for BatchShare
 pod 'Firebase/Core'
-pod 'Firebase'
-pod 'FirebaseUI'
-pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod 'FirebaseFirestore'
 
 end
