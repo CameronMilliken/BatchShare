@@ -1,5 +1,5 @@
 //
-//  FirestoreClient.swift
+//  FirebaseManager.swift
 //  BatchShare
 //
 //  Created by Steve Lederer on 1/15/19.
@@ -9,10 +9,10 @@
 import Foundation
 import Firebase
 
-class FirestoreClient {
+class FirebaseManager {
     
-    static let shared = FirestoreClient()
-    
+    static let shared = FirebaseManager()
+        
     func fetchFromFirestore<T: FirestoreFetchable>(uuid: String, completion: @escaping (T?) -> Void) {
         let collectionReference = T.collection
         
@@ -28,7 +28,7 @@ class FirestoreClient {
             completion(object)
         }
     }
-    
+
     func fetchAllInACollectionFromFirestore<T: FirestoreFetchable>(completion: @escaping ([T]?) -> Void) {
         let collectionReference = T.collection
         
@@ -49,7 +49,7 @@ class FirestoreClient {
             completion(returnValue)
         }
     }
-    
+
     func fetchFirestoreWithFieldAndCriteria<T: FirestoreFetchable>(for field: String, criteria: String, completion: @escaping ([T]?) -> Void) {
         let collectionReference = T.collection
         let filteredCollection = collectionReference.whereField(field, isEqualTo: criteria)
@@ -69,5 +69,37 @@ class FirestoreClient {
             }
             completion(returnValue)
         }
+    }
+    
+    func saveData<T: FirestoreFetchable>(object: T, completion: @escaping (Error?) -> Void) {
+        let collectionReference = T.collection
+        let documentReference = collectionReference.document(object.uuid)
+        documentReference.setData(object.dictionary) { (error) in
+            if let error = error {
+                print("Error! \(error) \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+    
+    func updateData<T: FirestoreFetchable>(obect: T, dictionary: [String : Any], completion: @escaping (Error?) -> Void) {
+        let documentReference = T.collection.document(obect.uuid)
+        documentReference.updateData(dictionary) { (error) in
+            if let error = error {
+                print("There was an error in \(#function) ---- \(error) \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+        
+    }
+    
+    func deleteData<T: FirestoreFetchable>(object: T, completion: @escaping (Bool) -> Void) {
+        let collectionReference = T.collection
+        collectionReference.document().delete()
+        completion(true)
     }
 }
