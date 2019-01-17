@@ -9,5 +9,6 @@ target 'BatchShare' do
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'FirebaseFirestore'
+pod 'Firebase/Database'
 
 end
